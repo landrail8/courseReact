@@ -1,14 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import NewComponent from './new';
+import { BrowserRouter, Route} from 'react-router-dom';
 
 class App extends React.Component {
+  
+  constructor(props) {
+    super(props);
+   
+  }
+
+ 
+
   render() {
 
     return (
-      <h1>sdfsdfsdf  </h1>
+      <div>
+        <h1>APP Component</h1>
+      </div>
     )
   }
 
 }
 
-ReactDOM.render(<App />, document.getElementById("app"))
+ReactDOM.render(
+  <BrowserRouter> 
+    <div>
+      <Route exact path={'/'} component = { App } />
+      <Route path={'/new'} component = { NewComponent } />
+    </div>
+  </BrowserRouter> 
+   , 
+  document.getElementById("app")
+)
